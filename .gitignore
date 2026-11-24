@@ -47,3 +47,5 @@ Thumbs.db
 # External and experimental benchmark content
 data/processed/
 data/splits/
+/backups/
+/data/metadata/bipia_final_review.csv
