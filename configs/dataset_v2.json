@@ -1,0 +1,220 @@
+
+{
+  "project": "RAG Security Lab",
+  "dataset_version": "2.0-dev",
+  "random_seed": 42,
+  "status": "development",
+  "total_samples": 3000,
+
+  "corpus": {
+    "total_documents": 100,
+    "domains": {
+      "academics": 15,
+      "administration": 15,
+      "attendance": 15,
+      "examinations": 15,
+      "placements": 15,
+      "admissions": 5,
+      "library": 5,
+      "hostel": 5,
+      "scholarships_fees": 5,
+      "student_support": 5
+    }
+  },
+
+  "sample_targets": {
+    "benign": 700,
+    "direct_injection": 400,
+    "instruction_manipulation": 400,
+    "obfuscation": 500,
+    "indirect_injection": 600,
+    "multi_stage": 400
+  },
+
+  "benign_categories": {
+    "normal": 250,
+    "hard_negative": 200,
+    "multilingual": 100,
+    "multi_turn": 100,
+    "unanswerable": 50
+  },
+
+  "source_targets": {
+    "custom_benign": 700,
+    "custom_adversarial": 1300,
+    "bipia_derived": 500,
+    "tensor_trust_derived": 300,
+    "deepset_derived": 200
+  },
+
+  "attack_taxonomy": {
+    "direct_injection": [
+      "task_replacement",
+      "instruction_override",
+      "role_play",
+      "output_manipulation",
+      "synthetic_prompt_disclosure",
+      "synthetic_context_disclosure",
+      "topic_redirection",
+      "answer_manipulation"
+    ],
+
+    "instruction_manipulation": [
+      "authority_conflict",
+      "role_conflict",
+      "priority_conflict",
+      "authorization_claim",
+      "policy_conflict",
+      "message_source_conflict",
+      "instruction_cancellation",
+      "urgency_claim"
+    ],
+
+    "obfuscation": [
+      "character_variation",
+      "unicode_variation",
+      "whitespace_variation",
+      "case_variation",
+      "multilingual",
+      "mixed_language",
+      "encoding_variation",
+      "formatting_variation",
+      "paraphrasing",
+      "spelling_variation"
+    ],
+
+    "indirect_injection": [
+      "document_body",
+      "document_footer",
+      "document_header",
+      "document_metadata",
+      "institutional_notice",
+      "structured_document",
+      "conflicting_documents",
+      "multiple_chunks",
+      "relevant_document",
+      "irrelevant_document",
+      "source_authority",
+      "retrieval_position"
+    ],
+
+    "multi_stage": [
+      "two_turn",
+      "three_turn",
+      "context_persistence",
+      "delayed_conflict",
+      "cross_turn_information",
+      "task_transition",
+      "multi_document",
+      "session_boundary"
+    ]
+  },
+
+  "attack_objectives": [
+    "instruction_hijacking",
+    "synthetic_information_disclosure",
+    "answer_integrity_violation",
+    "synthetic_prompt_disclosure",
+    "output_manipulation",
+    "task_denial",
+    "grounding_violation",
+    "citation_manipulation"
+  ],
+
+  "attack_channels": [
+    "user_input",
+    "retrieved_context",
+    "conversation_history",
+    "document_metadata",
+    "combined"
+  ],
+
+  "languages": [
+    "en",
+    "hi",
+    "es",
+    "fr"
+  ],
+
+  "document_formats": [
+    "txt",
+    "markdown",
+    "csv",
+    "json"
+  ],
+
+  "splits": {
+    "train": {
+      "benign": 280,
+      "adversarial": 920
+    },
+    "validation": {
+      "benign": 140,
+      "adversarial": 460
+    },
+    "test_seen": {
+      "benign": 0,
+      "adversarial": 460
+    },
+    "test_unseen": {
+      "benign": 0,
+      "adversarial": 460
+    },
+    "test_benign": {
+      "benign": 280,
+      "adversarial": 0
+    }
+  },
+
+  "generalization_dimensions": [
+    "seen_template",
+    "unseen_template",
+    "unseen_strategy",
+    "cross_language",
+    "cross_source",
+    "cross_model"
+  ],
+
+  "defenses": {
+    "D0": "baseline",
+    "D1": "rule_based",
+    "D2": "ml_detector",
+    "D3": "context_isolation",
+    "D4": "output_validation",
+    "D5": "combined"
+  },
+
+  "evaluation_metrics": [
+    "attack_success_rate",
+    "detection_precision",
+    "detection_recall",
+    "detection_f1",
+    "false_positive_rate",
+    "answer_utility",
+    "grounding_accuracy",
+    "generalization_gap",
+    "retrieval_recall",
+    "latency_ms",
+    "input_tokens",
+    "output_tokens",
+    "api_cost"
+  ],
+
+  "experimental_protocol": {
+    "minimum_backbone_models": 2,
+    "pairwise_ablation": true,
+    "paired_statistical_tests": true,
+    "bootstrap_confidence_intervals": true,
+    "confidence_level": 0.95,
+    "manual_annotation": true,
+    "grouped_split": true,
+    "test_set_locked": true
+  },
+
+  "safety_constraints": {
+    "synthetic_secrets_only": true,
+    "real_personal_data_allowed": false,
+    "external_actions_allowed": false,
+    "real_world_targets_allowed": false
+  }
+}

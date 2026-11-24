@@ -49,3 +49,10 @@ data/processed/
 data/splits/
 /backups/
 /data/metadata/bipia_final_review.csv
+# Expanded research dataset
+/data/v2/raw/
+/data/v2/processed/
+/data/v2/splits/
+
+# Local backups
+/backups/
