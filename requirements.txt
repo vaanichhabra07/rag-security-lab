@@ -1,0 +1,8 @@
+pandas
+numpy
+requests
+tqdm
+scikit-learn
+pyyaml
+jsonschema
+python-dotenv

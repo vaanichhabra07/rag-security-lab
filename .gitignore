@@ -1,0 +1,46 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+credentials.json
+service-account*.json
+secrets.toml
+
+# IDE settings
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Vector databases
+.chroma/
+chroma_db/
+*.sqlite3
+
+# Raw external datasets
+data/raw/
+
+# Model weights
+models/
+*.pt
+*.pth
+*.safetensors
+*.onnx
+
+# Temporary files and logs
+*.log
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
