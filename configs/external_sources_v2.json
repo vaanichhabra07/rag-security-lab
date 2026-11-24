@@ -1,0 +1,65 @@
+
+{
+  "dataset_version": "2.0-dev",
+  "verification_status": "preliminary_review_complete",
+  "sources": {
+    "bipia": {
+      "full_name": "Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models",
+      "publisher": "Microsoft Research",
+      "publication_year": 2023,
+      "repository": "https://github.com/microsoft/BIPIA",
+      "paper": "https://arxiv.org/abs/2312.14197",
+      "repository_license": "MIT",
+      "dataset_specific_licenses": true,
+      "recommended_families": [
+        "indirect_injection"
+      ],
+      "proposed_samples": 500,
+      "status": "conditional_acceptance",
+      "record_review_required": true
+    },
+    "tensor_trust": {
+      "full_name": "Tensor Trust",
+      "publication_year": 2024,
+      "venue": "ICLR",
+      "repository": "https://github.com/HumanCompatibleAI/tensor-trust",
+      "dataset_repository": "https://github.com/HumanCompatibleAI/tensor-trust-data",
+      "paper": "https://arxiv.org/abs/2311.01011",
+      "code_license": "BSD-2-Clause",
+      "dataset_license_verified": false,
+      "recommended_families": [
+        "direct_injection",
+        "instruction_manipulation"
+      ],
+      "proposed_samples": 350,
+      "status": "conditional_acceptance",
+      "record_review_required": true
+    },
+    "deepset": {
+      "full_name": "Deepset Prompt Injections",
+      "repository": "https://huggingface.co/datasets/deepset/prompt-injections",
+      "total_records": 662,
+      "train_records": 546,
+      "test_records": 116,
+      "license_metadata": [
+        "Apache-2.0",
+        "CC-BY-4.0"
+      ],
+      "license_resolution_required": true,
+      "recommended_use": "supplementary_detection_benchmark",
+      "proposed_main_dataset_samples": 0,
+      "status": "pending_license_resolution"
+    }
+  },
+  "proposed_main_dataset_distribution": {
+    "custom_benign": 700,
+    "custom_adversarial": 1450,
+    "bipia_derived": 500,
+    "tensor_trust_derived": 350
+  },
+  "proposed_total": 3000,
+  "allocation_revision_applied": false,
+  "records_integrated": 0,
+  "redistribution_approved": false,
+  "research_validation_complete": false
+}
