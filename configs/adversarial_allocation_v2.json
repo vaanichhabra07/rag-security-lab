@@ -1,0 +1,76 @@
+
+{
+  "dataset_version": "2.0-dev",
+  "random_seed": 42,
+  "total_adversarial": 2300,
+  "allocation_status": "provisional",
+
+  "family_source_allocation": {
+    "direct_injection": {
+      "custom": 200,
+      "bipia": 0,
+      "tensor_trust": 100,
+      "deepset": 100
+    },
+    "instruction_manipulation": {
+      "custom": 200,
+      "bipia": 0,
+      "tensor_trust": 150,
+      "deepset": 50
+    },
+    "obfuscation": {
+      "custom": 300,
+      "bipia": 150,
+      "tensor_trust": 0,
+      "deepset": 50
+    },
+    "indirect_injection": {
+      "custom": 250,
+      "bipia": 350,
+      "tensor_trust": 0,
+      "deepset": 0
+    },
+    "multi_stage": {
+      "custom": 350,
+      "bipia": 0,
+      "tensor_trust": 50,
+      "deepset": 0
+    }
+  },
+
+  "split_percentages": {
+    "train": 40,
+    "validation": 20,
+    "test_seen": 20,
+    "test_unseen": 20
+  },
+
+  "document_partition_percentages": {
+    "train": 40,
+    "validation": 20,
+    "test": 40
+  },
+
+  "pairing_constraints": [
+    "same_qa_id",
+    "same_document_id",
+    "same_attack_family",
+    "same_source_group",
+    "different_template_partition"
+  ],
+
+  "security_objectives": [
+    "instruction_hijacking",
+    "synthetic_information_disclosure",
+    "answer_integrity_violation",
+    "synthetic_prompt_disclosure",
+    "output_manipulation",
+    "task_denial",
+    "grounding_violation",
+    "citation_manipulation"
+  ],
+
+  "source_review_required": true,
+  "synthetic_secrets_only": true,
+  "external_actions_allowed": false
+}
