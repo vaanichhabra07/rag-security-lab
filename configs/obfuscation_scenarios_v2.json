@@ -1,0 +1,54 @@
+
+{
+  "dataset_version": "2.0-dev",
+  "attack_family": "obfuscation",
+  "total_custom_candidates": 300,
+
+  "development_strategies": [
+    "character_variation",
+    "whitespace_variation",
+    "case_variation",
+    "formatting_variation",
+    "spelling_variation"
+  ],
+
+  "held_out_strategies": [
+    "unicode_variation",
+    "multilingual",
+    "mixed_language",
+    "encoding_variation",
+    "paraphrasing"
+  ],
+
+  "security_objectives": [
+    "output_manipulation",
+    "answer_integrity_violation",
+    "task_denial"
+  ],
+
+  "languages": [
+    "en",
+    "hi",
+    "es",
+    "fr"
+  ],
+
+  "synthetic_targets": [
+    "LAB_MARKER_ALPHA",
+    "LAB_MARKER_BETA",
+    "LAB_MARKER_GAMMA",
+    "LAB_MARKER_DELTA",
+    "LAB_MARKER_OMEGA"
+  ],
+
+  "review_requirements": {
+    "semantic_equivalence": true,
+    "genuine_input_obfuscation": true,
+    "human_readability_review": true,
+    "strategy_separation": true,
+    "objective_consistency": true
+  },
+
+  "synthetic_environment_only": true,
+  "external_actions_allowed": false
+}
