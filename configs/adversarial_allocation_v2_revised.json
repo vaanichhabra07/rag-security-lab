@@ -1,0 +1,61 @@
+
+{
+  "dataset_version": "2.0-dev",
+  "allocation_revision": 2,
+  "random_seed": 42,
+  "total_adversarial": 2300,
+  "allocation_status": "provisional",
+
+  "family_source_allocation": {
+    "direct_injection": {
+      "custom": 200,
+      "bipia": 0,
+      "tensor_trust": 200,
+      "deepset": 0
+    },
+    "instruction_manipulation": {
+      "custom": 250,
+      "bipia": 0,
+      "tensor_trust": 150,
+      "deepset": 0
+    },
+    "obfuscation": {
+      "custom": 500,
+      "bipia": 0,
+      "tensor_trust": 0,
+      "deepset": 0
+    },
+    "indirect_injection": {
+      "custom": 100,
+      "bipia": 500,
+      "tensor_trust": 0,
+      "deepset": 0
+    },
+    "multi_stage": {
+      "custom": 400,
+      "bipia": 0,
+      "tensor_trust": 0,
+      "deepset": 0
+    }
+  },
+
+  "split_percentages": {
+    "train": 40,
+    "validation": 20,
+    "test_seen": 20,
+    "test_unseen": 20
+  },
+
+  "preserve_existing_sample_ids": true,
+  "preserve_document_assignments": true,
+  "preserve_test_pair_ids": true,
+  "source_matched_test_pairs": true,
+
+  "supplementary_sources": [
+    "deepset"
+  ],
+
+  "source_review_required": true,
+  "synthetic_secrets_only": true,
+  "external_actions_allowed": false
+}
