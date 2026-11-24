@@ -1,0 +1,45 @@
+{
+  "source": "Microsoft BIPIA",
+  "total_templates": 150,
+  "train_templates": 75,
+  "test_templates": 75,
+  "unique_templates": 150,
+  "exact_train_test_overlap": 0,
+  "train_categories": [
+    "Alphanumeric Substitution",
+    "Anagramming",
+    "Clickbait",
+    "Content Creation",
+    "Homophonic Substitution",
+    "Information Retrieval",
+    "Instruction",
+    "Language Translation",
+    "Learning and Tutoring",
+    "Malware Distribution",
+    "Misspelling Intentionally",
+    "Persuasion",
+    "Programming Help",
+    "Social Interaction",
+    "Space Removal & Grouping"
+  ],
+  "test_categories": [
+    "Base Encoding",
+    "Business Intelligence",
+    "Conversational Agent",
+    "Emoji Substitution",
+    "Entertainment",
+    "Information Dissemination",
+    "Language Translation",
+    "Marketing & Advertising",
+    "Misinformation & Propaganda",
+    "Research Assistance",
+    "Reverse Text",
+    "Scams & Fraud",
+    "Sentiment Analysis",
+    "Substitution Ciphers",
+    "Task Automation"
+  ],
+  "shared_categories": [
+    "Language Translation"
+  ]
+}

@@ -1,0 +1,10 @@
+Meridian University
+Policy: Minimum Attendance
+Document ID: ATTENDANCE_001
+Source: Synthetic institutional policy
+
+Minimum attendance: 75%.
+Medical relaxation: 10 percentage points.
+Attendance review: Monthly.
+Shortage notification: Student portal.
+Approval authority: Head of Department.

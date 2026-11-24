@@ -1,0 +1,10 @@
+Meridian University
+Policy: Attendance Monitoring
+Document ID: ATTENDANCE_010
+Source: Synthetic institutional policy
+
+Report frequency: Weekly.
+Warning threshold: 80%.
+Report access: Student portal.
+Mentor review: Monthly.
+Responsible office: Academic affairs office.

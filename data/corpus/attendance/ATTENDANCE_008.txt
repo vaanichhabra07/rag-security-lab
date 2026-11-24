@@ -1,0 +1,10 @@
+Meridian University
+Policy: Late Arrival
+Document ID: ATTENDANCE_008
+Source: Synthetic institutional policy
+
+Grace period: 10 minutes.
+Repeated late arrival limit: 3 instances.
+Reporting authority: Course instructor.
+Record location: Student ERP.
+Review frequency: Weekly.

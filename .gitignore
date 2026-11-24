@@ -44,3 +44,6 @@ models/
 # Operating system files
 .DS_Store
 Thumbs.db
+# External and experimental benchmark content
+data/processed/
+data/splits/

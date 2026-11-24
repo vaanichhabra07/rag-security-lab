@@ -1,0 +1,221 @@
+{
+  "datasets": {
+    "email": {
+      "train": {
+        "available": true,
+        "sample_count": 50,
+        "fields": [
+          "context",
+          "ideal",
+          "question"
+        ]
+      },
+      "test": {
+        "available": true,
+        "sample_count": 50,
+        "fields": [
+          "context",
+          "ideal",
+          "question"
+        ]
+      }
+    },
+    "code": {
+      "train": {
+        "available": true,
+        "sample_count": 50,
+        "fields": [
+          "code",
+          "context",
+          "context_author_url",
+          "context_url",
+          "error",
+          "ideal"
+        ]
+      },
+      "test": {
+        "available": true,
+        "sample_count": 50,
+        "fields": [
+          "code",
+          "context",
+          "context_author_url",
+          "context_url",
+          "error",
+          "ideal"
+        ]
+      }
+    },
+    "table": {
+      "train": {
+        "available": true,
+        "sample_count": 900,
+        "fields": [
+          "context",
+          "ideal",
+          "question"
+        ]
+      },
+      "test": {
+        "available": true,
+        "sample_count": 100,
+        "fields": [
+          "context",
+          "ideal",
+          "question"
+        ]
+      }
+    },
+    "qa": {
+      "train": {
+        "available": false
+      },
+      "test": {
+        "available": false
+      }
+    },
+    "abstract": {
+      "train": {
+        "available": false
+      },
+      "test": {
+        "available": false
+      }
+    }
+  },
+  "attack_files": {
+    "code_attack_test.json": {
+      "data_type": "dict",
+      "top_level_keys": [
+        "Data Eavesdropping",
+        "Traffic Analysis",
+        "Keylogging",
+        "Screen Scraping",
+        "Introduce System Fingerprinting",
+        "Blocking Internet Connection",
+        "Corrupting an Operating System",
+        "Encrypting Documents and Demanding Ransom (Ransomware)",
+        "Compromising Computers",
+        "Bringing Down Hosts and Servers (Denial of Service)"
+      ],
+      "top_level_count": 10,
+      "category_sizes": {
+        "Data Eavesdropping": 5,
+        "Traffic Analysis": 5,
+        "Keylogging": 5,
+        "Screen Scraping": 5,
+        "Introduce System Fingerprinting": 5,
+        "Blocking Internet Connection": 5,
+        "Corrupting an Operating System": 5,
+        "Encrypting Documents and Demanding Ransom (Ransomware)": 5,
+        "Compromising Computers": 5,
+        "Bringing Down Hosts and Servers (Denial of Service)": 5
+      }
+    },
+    "code_attack_train.json": {
+      "data_type": "dict",
+      "top_level_keys": [
+        "Cookie Theft",
+        "Memory Scanning",
+        "Dumpster Diving",
+        "Environment Variable Analysis",
+        "Device and Driver Enumeration",
+        "Sending Out Spam Emails",
+        "Crippling Critical Infrastructures",
+        "Network Propagation",
+        "Exploiting System Vulnerabilities",
+        "Cryptocurrency Mining"
+      ],
+      "top_level_count": 10,
+      "category_sizes": {
+        "Cookie Theft": 5,
+        "Memory Scanning": 5,
+        "Dumpster Diving": 5,
+        "Environment Variable Analysis": 5,
+        "Device and Driver Enumeration": 5,
+        "Sending Out Spam Emails": 5,
+        "Crippling Critical Infrastructures": 5,
+        "Network Propagation": 5,
+        "Exploiting System Vulnerabilities": 5,
+        "Cryptocurrency Mining": 5
+      }
+    },
+    "text_attack_test.json": {
+      "data_type": "dict",
+      "top_level_keys": [
+        "Task Automation",
+        "Business Intelligence",
+        "Conversational Agent",
+        "Research Assistance",
+        "Sentiment Analysis",
+        "Substitution Ciphers",
+        "Base Encoding",
+        "Reverse Text",
+        "Emoji Substitution",
+        "Language Translation",
+        "Information Dissemination",
+        "Marketing & Advertising",
+        "Entertainment",
+        "Scams & Fraud",
+        "Misinformation & Propaganda"
+      ],
+      "top_level_count": 15,
+      "category_sizes": {
+        "Task Automation": 5,
+        "Business Intelligence": 5,
+        "Conversational Agent": 5,
+        "Research Assistance": 5,
+        "Sentiment Analysis": 5,
+        "Substitution Ciphers": 5,
+        "Base Encoding": 5,
+        "Reverse Text": 5,
+        "Emoji Substitution": 5,
+        "Language Translation": 5,
+        "Information Dissemination": 5,
+        "Marketing & Advertising": 5,
+        "Entertainment": 5,
+        "Scams & Fraud": 5,
+        "Misinformation & Propaganda": 5
+      }
+    },
+    "text_attack_train.json": {
+      "data_type": "dict",
+      "top_level_keys": [
+        "Information Retrieval",
+        "Content Creation",
+        "Learning and Tutoring",
+        "Language Translation",
+        "Programming Help",
+        "Alphanumeric Substitution",
+        "Homophonic Substitution",
+        "Misspelling Intentionally",
+        "Anagramming",
+        "Space Removal & Grouping",
+        "Instruction",
+        "Social Interaction",
+        "Persuasion",
+        "Clickbait",
+        "Malware Distribution"
+      ],
+      "top_level_count": 15,
+      "category_sizes": {
+        "Information Retrieval": 5,
+        "Content Creation": 5,
+        "Learning and Tutoring": 5,
+        "Language Translation": 5,
+        "Programming Help": 5,
+        "Alphanumeric Substitution": 5,
+        "Homophonic Substitution": 5,
+        "Misspelling Intentionally": 5,
+        "Anagramming": 5,
+        "Space Removal & Grouping": 5,
+        "Instruction": 5,
+        "Social Interaction": 5,
+        "Persuasion": 5,
+        "Clickbait": 5,
+        "Malware Distribution": 5
+      }
+    }
+  },
+  "total_context_records": 1200
+}

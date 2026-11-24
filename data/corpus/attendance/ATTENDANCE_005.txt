@@ -1,0 +1,10 @@
+Meridian University
+Policy: Biometric Attendance
+Document ID: ATTENDANCE_005
+Source: Synthetic institutional policy
+
+Verification method: University identity card.
+Check-in window: 10 minutes.
+Technical support: IT helpdesk.
+Record synchronization: Daily.
+Backup method: Faculty attendance register.

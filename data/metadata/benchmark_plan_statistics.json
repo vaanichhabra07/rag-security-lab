@@ -1,0 +1,27 @@
+{
+  "random_seed": 42,
+  "planned_adversarial_samples": 1250,
+  "benign_samples": 250,
+  "target_master_samples": 1500,
+  "bipia_templates_available": 150,
+  "custom_scenarios_available": 50,
+  "document_distribution": {
+    "train": 20,
+    "validation": 10,
+    "test": 20
+  },
+  "adversarial_split_distribution": {
+    "train": 500,
+    "validation": 250,
+    "test_seen": 250,
+    "test_unseen": 250
+  },
+  "attack_family_distribution": {
+    "direct_injection": 250,
+    "instruction_manipulation": 250,
+    "obfuscation": 250,
+    "indirect_injection": 250,
+    "multi_stage": 250
+  },
+  "status": "planned_not_materialized"
+}

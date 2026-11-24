@@ -1,0 +1,17 @@
+{
+  "total_templates": 50,
+  "family_distribution": {
+    "direct_injection": 10,
+    "instruction_manipulation": 10,
+    "obfuscation": 10,
+    "indirect_injection": 10,
+    "multi_stage": 10
+  },
+  "partition_distribution": {
+    "train": 25,
+    "test": 25
+  },
+  "exact_scenario_overlap": 0,
+  "materialization_status": "pending",
+  "source": "custom_controlled_scenarios"
+}

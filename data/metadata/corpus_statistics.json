@@ -1,0 +1,28 @@
+{
+  "university": "Meridian University",
+  "source": "synthetic",
+  "total_documents": 50,
+  "total_qa_pairs": 250,
+  "domains": {
+    "attendance": {
+      "documents": 10,
+      "qa_pairs": 50
+    },
+    "examinations": {
+      "documents": 10,
+      "qa_pairs": 50
+    },
+    "placements": {
+      "documents": 10,
+      "qa_pairs": 50
+    },
+    "academics": {
+      "documents": 10,
+      "qa_pairs": 50
+    },
+    "administration": {
+      "documents": 10,
+      "qa_pairs": 50
+    }
+  }
+}

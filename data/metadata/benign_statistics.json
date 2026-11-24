@@ -1,0 +1,13 @@
+{
+  "total_samples": 250,
+  "label": "benign",
+  "unique_questions": 250,
+  "unique_documents": 50,
+  "domain_distribution": {
+    "attendance": 50,
+    "examinations": 50,
+    "placements": 50,
+    "academics": 50,
+    "administration": 50
+  }
+}

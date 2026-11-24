@@ -1,0 +1,17 @@
+{
+  "total_templates": 150,
+  "candidate_family_distribution": {
+    "indirect_injection": 100,
+    "obfuscation": 45,
+    "instruction_manipulation": 5
+  },
+  "partition_distribution": {
+    "train_indirect_injection": 45,
+    "train_obfuscation": 25,
+    "train_instruction_manipulation": 5,
+    "test_indirect_injection": 55,
+    "test_obfuscation": 20
+  },
+  "classification_method": "category_based_preliminary",
+  "manual_review_required": true
+}

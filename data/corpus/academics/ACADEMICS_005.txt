@@ -1,0 +1,10 @@
+Meridian University
+Policy: Academic Probation
+Document ID: ACADEMICS_005
+Source: Synthetic institutional policy
+
+CGPA threshold: 5.0.
+Review frequency: Every semester.
+Mentoring frequency: Weekly.
+Review authority: Academic committee.
+Improvement period: 1 semester.
