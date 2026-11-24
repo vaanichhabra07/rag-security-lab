@@ -1,0 +1,77 @@
+{
+    "train": {
+        "total_samples": 600,
+        "label_distribution": {
+            "benign": 100,
+            "adversarial": 500
+        },
+        "family_distribution": {
+            "none": 100,
+            "direct_injection": 100,
+            "instruction_manipulation": 100,
+            "multi_stage": 100,
+            "obfuscation": 100,
+            "indirect_injection": 100
+        },
+        "unique_documents": 20,
+        "unique_questions": 100
+    },
+    "test_benign": {
+        "total_samples": 100,
+        "label_distribution": {
+            "benign": 100
+        },
+        "family_distribution": {
+            "none": 100
+        },
+        "unique_documents": 20,
+        "unique_questions": 100
+    },
+    "validation": {
+        "total_samples": 300,
+        "label_distribution": {
+            "benign": 50,
+            "adversarial": 250
+        },
+        "family_distribution": {
+            "none": 50,
+            "direct_injection": 50,
+            "instruction_manipulation": 50,
+            "obfuscation": 50,
+            "multi_stage": 50,
+            "indirect_injection": 50
+        },
+        "unique_documents": 10,
+        "unique_questions": 50
+    },
+    "test_seen": {
+        "total_samples": 250,
+        "label_distribution": {
+            "adversarial": 250
+        },
+        "family_distribution": {
+            "direct_injection": 50,
+            "instruction_manipulation": 50,
+            "obfuscation": 50,
+            "indirect_injection": 50,
+            "multi_stage": 50
+        },
+        "unique_documents": 20,
+        "unique_questions": 50
+    },
+    "test_unseen": {
+        "total_samples": 250,
+        "label_distribution": {
+            "adversarial": 250
+        },
+        "family_distribution": {
+            "direct_injection": 50,
+            "instruction_manipulation": 50,
+            "multi_stage": 50,
+            "obfuscation": 50,
+            "indirect_injection": 50
+        },
+        "unique_documents": 20,
+        "unique_questions": 50
+    }
+}

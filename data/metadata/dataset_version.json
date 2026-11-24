@@ -1,0 +1,31 @@
+{
+    "dataset_name": "RAG Security Lab",
+    "version": "1.0-rc1",
+    "frozen_at": "2026-11-24T20:09:08.696794+00:00",
+    "status": "research_candidate",
+    "total_samples": 1500,
+    "benign_samples": 250,
+    "adversarial_samples": 1250,
+    "institutional_documents": 50,
+    "qa_pairs": 250,
+    "attack_families": 5,
+    "splits": {
+        "train": 600,
+        "validation": 300,
+        "test_seen": 250,
+        "test_unseen": 250,
+        "test_benign": 100
+    },
+    "random_seed": 42,
+    "structural_validation_passed": true,
+    "research_validation_complete": false,
+    "validation_warnings": [
+        "50 paired tests have different attack sources.",
+        "295 samples require validated semantic scoring.",
+        "Exact payload checks do not establish semantic independence of attack templates.",
+        "Custom attack diversity and family definitions require qualitative review."
+    ],
+    "git_commit_before_freeze": "f50f2b239927eddc02372707c01c17cdb220da75",
+    "files_checksummed": 106,
+    "checksum_algorithm": "SHA-256"
+}

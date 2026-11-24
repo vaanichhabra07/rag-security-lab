@@ -1,0 +1,23 @@
+{
+  "total_samples": 1500,
+  "label_distribution": {
+    "benign": 250,
+    "adversarial": 1250
+  },
+  "family_distribution": {
+    "none": 250,
+    "direct_injection": 250,
+    "instruction_manipulation": 250,
+    "multi_stage": 250,
+    "obfuscation": 250,
+    "indirect_injection": 250
+  },
+  "source_distribution": {
+    "synthetic_institutional": 250,
+    "custom": 950,
+    "BIPIA_derived": 287,
+    "BIPIA_adapted": 13
+  },
+  "unique_documents": 50,
+  "structural_validation": "passed"
+}

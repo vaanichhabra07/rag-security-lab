@@ -1,0 +1,170 @@
+{
+    "total_samples": 1500,
+    "checks_passed": 38,
+    "checks_failed": 0,
+    "checks": [
+        {
+            "check": "Master dataset has 1500 records",
+            "passed": true
+        },
+        {
+            "check": "Combined splits have 1500 records",
+            "passed": true
+        },
+        {
+            "check": "Unique sample IDs",
+            "passed": true
+        },
+        {
+            "check": "Master and split records match",
+            "passed": true
+        },
+        {
+            "check": "train: 600 records",
+            "passed": true
+        },
+        {
+            "check": "train: correct split labels",
+            "passed": true
+        },
+        {
+            "check": "validation: 300 records",
+            "passed": true
+        },
+        {
+            "check": "validation: correct split labels",
+            "passed": true
+        },
+        {
+            "check": "test_seen: 250 records",
+            "passed": true
+        },
+        {
+            "check": "test_seen: correct split labels",
+            "passed": true
+        },
+        {
+            "check": "test_unseen: 250 records",
+            "passed": true
+        },
+        {
+            "check": "test_unseen: correct split labels",
+            "passed": true
+        },
+        {
+            "check": "test_benign: 100 records",
+            "passed": true
+        },
+        {
+            "check": "test_benign: correct split labels",
+            "passed": true
+        },
+        {
+            "check": "250 benign samples",
+            "passed": true
+        },
+        {
+            "check": "1250 adversarial samples",
+            "passed": true
+        },
+        {
+            "check": "direct_injection: 250 samples",
+            "passed": true
+        },
+        {
+            "check": "instruction_manipulation: 250 samples",
+            "passed": true
+        },
+        {
+            "check": "obfuscation: 250 samples",
+            "passed": true
+        },
+        {
+            "check": "indirect_injection: 250 samples",
+            "passed": true
+        },
+        {
+            "check": "multi_stage: 250 samples",
+            "passed": true
+        },
+        {
+            "check": "Train-validation document overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Train-test document overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Validation-test document overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Train-test QA overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Validation-test QA overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Train-unseen template ID overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Validation-unseen template ID overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Seen-unseen template ID overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Seen templates present in training",
+            "passed": true
+        },
+        {
+            "check": "Exact normalized payload overlap = 0",
+            "passed": true
+        },
+        {
+            "check": "Seen and unseen QA-family pairs match",
+            "passed": true
+        },
+        {
+            "check": "Benign samples are unmodified",
+            "passed": true
+        },
+        {
+            "check": "All adversarial samples contain changes",
+            "passed": true
+        },
+        {
+            "check": "All samples have expected answers",
+            "passed": true
+        },
+        {
+            "check": "All attacks have success criteria",
+            "passed": true
+        },
+        {
+            "check": "All attacks have defined goals",
+            "passed": true
+        },
+        {
+            "check": "All attacks have template IDs",
+            "passed": true
+        }
+    ],
+    "warnings": [
+        "50 paired tests have different attack sources.",
+        "295 samples require validated semantic scoring.",
+        "Exact payload checks do not establish semantic independence of attack templates.",
+        "Custom attack diversity and family definitions require qualitative review."
+    ],
+    "source_pair_mismatches": 50,
+    "exact_payload_overlap": 0,
+    "semantic_review_samples": 295,
+    "structural_validation_passed": true,
+    "research_validation_complete": false
+}
