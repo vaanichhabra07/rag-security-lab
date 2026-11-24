@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_037
+Domain: hostel
+Policy title: Hostel Maintenance
+
+Scope
+This document describes the hostel maintenance procedure within the fictional institution.
+
+Policy provisions
+1. Request channel: Hostel maintenance portal.
+2. Routine response period: 2 working days.
+3. Responsible authority: Hostel Facilities Unit.
+4. Required information: Room number and issue description.
+5. Escalation period: 3 working days.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

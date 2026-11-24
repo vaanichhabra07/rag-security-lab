@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_035
+Domain: library
+Policy title: Library Resource Request
+
+Scope
+This document describes the library resource request procedure within the fictional institution.
+
+Policy provisions
+1. Request channel: Library acquisition portal.
+2. Review period: 10 working days.
+3. Required information: Title and author.
+4. Review authority: Library Acquisition Committee.
+5. Notification channel: Institutional email.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

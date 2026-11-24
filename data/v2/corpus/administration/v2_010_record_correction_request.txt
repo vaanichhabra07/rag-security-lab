@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_010
+Domain: administration
+Policy title: Record Correction Request
+
+Scope
+This document describes the record correction request procedure within the fictional institution.
+
+Policy provisions
+1. Application channel: Student records portal.
+2. Supporting evidence: Official supporting document.
+3. Processing period: 10 working days.
+4. Appeal window: 15 days.
+5. Responsible authority: Records Correction Committee.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

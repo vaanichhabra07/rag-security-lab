@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_011
+Domain: attendance
+Policy title: Medical Leave Documentation
+
+Scope
+This document describes the medical leave documentation procedure within the fictional institution.
+
+Policy provisions
+1. Submission deadline: 5 working days after return.
+2. Required evidence: Medical certificate.
+3. Review authority: Department Leave Committee.
+4. Processing period: 7 working days.
+5. Application channel: Student leave portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

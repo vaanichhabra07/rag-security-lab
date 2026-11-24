@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_034
+Domain: library
+Policy title: Study Room Reservation
+
+Scope
+This document describes the study room reservation procedure within the fictional institution.
+
+Policy provisions
+1. Maximum reservation duration: 2 hours.
+2. Booking window: 7 days in advance.
+3. Maximum group size: 6 students.
+4. Cancellation deadline: 2 hours before reservation.
+5. Booking channel: Library reservation portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

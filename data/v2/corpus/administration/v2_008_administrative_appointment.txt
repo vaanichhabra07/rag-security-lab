@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_008
+Domain: administration
+Policy title: Administrative Appointment
+
+Scope
+This document describes the administrative appointment procedure within the fictional institution.
+
+Policy provisions
+1. Booking window: 7 days in advance.
+2. Appointment duration: 20 minutes.
+3. Cancellation deadline: 24 hours before appointment.
+4. Booking channel: Administrative appointment portal.
+5. Confirmation method: Institutional email.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

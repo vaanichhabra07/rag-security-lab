@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_040
+Domain: hostel
+Policy title: Hostel Room Inventory
+
+Scope
+This document describes the hostel room inventory procedure within the fictional institution.
+
+Policy provisions
+1. Inspection frequency: Once per semester.
+2. Responsible authority: Accommodation Services Unit.
+3. Discrepancy reporting window: 3 working days.
+4. Reporting channel: Hostel services portal.
+5. Record retention: One academic year.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

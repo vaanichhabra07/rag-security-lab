@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_049
+Domain: student_support
+Policy title: Counselling Appointment
+
+Scope
+This document describes the counselling appointment procedure within the fictional institution.
+
+Policy provisions
+1. Session duration: 45 minutes.
+2. Booking channel: Student wellness portal.
+3. Routine appointment window: 5 working days.
+4. Responsible unit: Student Wellness Centre.
+5. Cancellation deadline: 24 hours before appointment.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

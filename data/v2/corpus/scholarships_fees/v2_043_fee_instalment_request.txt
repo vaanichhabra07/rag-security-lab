@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_043
+Domain: scholarships_fees
+Policy title: Fee Instalment Request
+
+Scope
+This document describes the fee instalment request procedure within the fictional institution.
+
+Policy provisions
+1. Maximum instalments: 3.
+2. Application deadline: 10 days before fee due date.
+3. Review period: 5 working days.
+4. Approving authority: Student Finance Office.
+5. Application channel: Fee services portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

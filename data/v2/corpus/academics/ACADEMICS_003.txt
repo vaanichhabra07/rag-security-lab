@@ -1,0 +1,10 @@
+Meridian University
+Policy: Grading System
+Document ID: ACADEMICS_003
+Source: Synthetic institutional policy
+
+Maximum grade point: 10.
+Minimum passing grade point: 4.
+Highest letter grade: O.
+Failing letter grade: F.
+Calculation method: Credit-weighted average.

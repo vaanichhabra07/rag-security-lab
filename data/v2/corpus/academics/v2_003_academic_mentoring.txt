@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_003
+Domain: academics
+Policy title: Academic Mentoring
+
+Scope
+This document describes the academic mentoring procedure within the fictional institution.
+
+Policy provisions
+1. Meeting frequency: Once every month.
+2. Session duration: 30 minutes.
+3. Assigned mentor: Faculty advisor.
+4. Review frequency: Once per semester.
+5. Appointment channel: Academic mentoring portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

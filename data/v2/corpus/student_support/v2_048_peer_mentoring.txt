@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_048
+Domain: student_support
+Policy title: Peer Mentoring
+
+Scope
+This document describes the peer mentoring procedure within the fictional institution.
+
+Policy provisions
+1. Meeting frequency: Once every two weeks.
+2. Session duration: 30 minutes.
+3. Registration channel: Peer mentoring portal.
+4. Responsible authority: Student Mentoring Coordinator.
+5. Feedback frequency: Once per month.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

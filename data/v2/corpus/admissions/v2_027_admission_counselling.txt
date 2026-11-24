@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_027
+Domain: admissions
+Policy title: Admission Counselling
+
+Scope
+This document describes the admission counselling procedure within the fictional institution.
+
+Policy provisions
+1. Session duration: 30 minutes.
+2. Booking window: 14 days in advance.
+3. Responsible authority: Admission Counselling Team.
+4. Booking channel: Admission portal.
+5. Confirmation method: Registered email.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

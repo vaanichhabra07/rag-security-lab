@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_018
+Domain: examinations
+Policy title: Digital Examination Receipt
+
+Scope
+This document describes the digital examination receipt procedure within the fictional institution.
+
+Policy provisions
+1. Availability period: 90 days.
+2. Download channel: Examination portal.
+3. Required authentication: Student account login.
+4. Correction window: 5 working days.
+5. Responsible office: Examination Services Unit.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

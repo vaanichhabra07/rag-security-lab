@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_031
+Domain: library
+Policy title: Book Borrowing
+
+Scope
+This document describes the book borrowing procedure within the fictional institution.
+
+Policy provisions
+1. Maximum borrowed books: 5 books.
+2. Loan period: 14 days.
+3. Required identification: University identity card.
+4. Issuing authority: Library Circulation Desk.
+5. Account access: Library portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

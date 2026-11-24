@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_041
+Domain: scholarships_fees
+Policy title: Merit Scholarship
+
+Scope
+This document describes the merit scholarship procedure within the fictional institution.
+
+Policy provisions
+1. Minimum academic score: 8.5 CGPA.
+2. Application window: 30 days.
+3. Required evidence: Latest academic transcript.
+4. Review authority: Scholarship Committee.
+5. Application channel: Scholarship portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

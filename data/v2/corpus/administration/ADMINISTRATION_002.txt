@@ -1,0 +1,10 @@
+Meridian University
+Policy: Library Membership
+Document ID: ADMINISTRATION_002
+Source: Synthetic institutional policy
+
+Maximum borrowed books: 5.
+Borrowing period: 14 days.
+Late fine: INR 5 per day per book.
+Renewal limit: 2 times.
+Membership requirement: Valid university identity card.

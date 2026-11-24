@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_002
+Domain: academics
+Policy title: Open Electives
+
+Scope
+This document describes the open electives procedure within the fictional institution.
+
+Policy provisions
+1. Maximum electives per semester: 2.
+2. Minimum enrolment: 15 students.
+3. Registration window: 7 working days.
+4. Approving authority: Academic Coordinator.
+5. Change deadline: 5 working days after registration.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

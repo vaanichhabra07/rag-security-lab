@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_039
+Domain: hostel
+Policy title: Temporary Hostel Leave
+
+Scope
+This document describes the temporary hostel leave procedure within the fictional institution.
+
+Policy provisions
+1. Application deadline: 24 hours before departure.
+2. Application channel: Hostel leave portal.
+3. Approving authority: Hostel Warden.
+4. Required information: Departure and return dates.
+5. Return confirmation: Hostel reception check-in.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

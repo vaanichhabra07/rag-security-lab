@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_004
+Domain: academics
+Policy title: Research Project Archive
+
+Scope
+This document describes the research project archive procedure within the fictional institution.
+
+Policy provisions
+1. Submission format: PDF.
+2. Maximum file size: 25 MB.
+3. Required approval: Project supervisor approval.
+4. Archive access: Authorized academic users.
+5. Retention period: 5 years.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

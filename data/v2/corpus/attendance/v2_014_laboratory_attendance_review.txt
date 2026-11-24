@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_014
+Domain: attendance
+Policy title: Laboratory Attendance Review
+
+Scope
+This document describes the laboratory attendance review procedure within the fictional institution.
+
+Policy provisions
+1. Review frequency: Every two weeks.
+2. Responsible authority: Laboratory Coordinator.
+3. Correction window: 5 working days.
+4. Evidence requirement: Laboratory session record.
+5. Notification channel: Institutional email.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

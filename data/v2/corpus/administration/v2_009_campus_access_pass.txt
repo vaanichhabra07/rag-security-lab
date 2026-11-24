@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_009
+Domain: administration
+Policy title: Campus Access Pass
+
+Scope
+This document describes the campus access pass procedure within the fictional institution.
+
+Policy provisions
+1. Maximum temporary validity: 7 days.
+2. Approving authority: Campus Services Office.
+3. Required identification: University identity card.
+4. Application deadline: 2 working days before access.
+5. Collection location: Campus reception.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

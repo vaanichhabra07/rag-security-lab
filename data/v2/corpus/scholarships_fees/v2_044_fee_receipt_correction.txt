@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_044
+Domain: scholarships_fees
+Policy title: Fee Receipt Correction
+
+Scope
+This document describes the fee receipt correction procedure within the fictional institution.
+
+Policy provisions
+1. Request window: 30 days after payment.
+2. Required evidence: Payment reference record.
+3. Processing period: 5 working days.
+4. Responsible authority: Finance Records Unit.
+5. Application channel: Fee services portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

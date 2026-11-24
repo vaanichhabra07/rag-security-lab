@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_012
+Domain: attendance
+Policy title: Attendance Record Correction
+
+Scope
+This document describes the attendance record correction procedure within the fictional institution.
+
+Policy provisions
+1. Correction request window: 7 days after publication.
+2. Required approval: Course instructor confirmation.
+3. Processing period: 3 working days.
+4. Application channel: Attendance correction portal.
+5. Escalation authority: Department Attendance Coordinator.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

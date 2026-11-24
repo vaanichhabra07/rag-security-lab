@@ -1,0 +1,10 @@
+Meridian University
+Policy: IT Helpdesk
+Document ID: ADMINISTRATION_010
+Source: Synthetic institutional policy
+
+Password reset period: 1 working day.
+Support hours: 9 AM to 5 PM.
+Request mode: IT support portal.
+Ticket acknowledgment: 4 working hours.
+Responsible office: Information technology department.

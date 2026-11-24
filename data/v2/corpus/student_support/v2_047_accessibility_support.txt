@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_047
+Domain: student_support
+Policy title: Accessibility Support
+
+Scope
+This document describes the accessibility support procedure within the fictional institution.
+
+Policy provisions
+1. Application channel: Accessibility services portal.
+2. Required evidence: Relevant supporting documentation.
+3. Review period: 7 working days.
+4. Responsible office: Accessibility Support Unit.
+5. Review frequency: Once per semester.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

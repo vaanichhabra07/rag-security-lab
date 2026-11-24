@@ -1,0 +1,82 @@
+
+{
+  "academics": [
+    ["Credit Transfer", "Maximum transferable credits", "12 credits", "Minimum equivalent grade", "B", "Application deadline", "21 days before registration", "Approving authority", "Academic Credit Committee", "Processing period", "10 working days"],
+    ["Open Electives", "Maximum electives per semester", "2", "Minimum enrolment", "15 students", "Registration window", "7 working days", "Approving authority", "Academic Coordinator", "Change deadline", "5 working days after registration"],
+    ["Academic Mentoring", "Meeting frequency", "Once every month", "Session duration", "30 minutes", "Assigned mentor", "Faculty advisor", "Review frequency", "Once per semester", "Appointment channel", "Academic mentoring portal"],
+    ["Research Project Archive", "Submission format", "PDF", "Maximum file size", "25 MB", "Required approval", "Project supervisor approval", "Archive access", "Authorized academic users", "Retention period", "5 years"],
+    ["Interdisciplinary Workshop", "Minimum duration", "8 hours", "Maximum participants", "40 students", "Registration channel", "Academic activity portal", "Completion requirement", "All scheduled sessions", "Certificate processing", "7 working days"]
+  ],
+
+  "administration": [
+    ["Document Verification", "Application channel", "Document verification portal", "Processing period", "5 working days", "Required identification", "University identity card", "Verification validity", "90 days", "Responsible office", "Records Verification Unit"],
+    ["Digital Identity Card", "Issuing authority", "Student Records Office", "Activation period", "2 working days", "Renewal frequency", "Once per academic year", "Replacement channel", "Student services portal", "Required photograph format", "JPEG"],
+    ["Administrative Appointment", "Booking window", "7 days in advance", "Appointment duration", "20 minutes", "Cancellation deadline", "24 hours before appointment", "Booking channel", "Administrative appointment portal", "Confirmation method", "Institutional email"],
+    ["Campus Access Pass", "Maximum temporary validity", "7 days", "Approving authority", "Campus Services Office", "Required identification", "University identity card", "Application deadline", "2 working days before access", "Collection location", "Campus reception"],
+    ["Record Correction Request", "Application channel", "Student records portal", "Supporting evidence", "Official supporting document", "Processing period", "10 working days", "Appeal window", "15 days", "Responsible authority", "Records Correction Committee"]
+  ],
+
+  "attendance": [
+    ["Medical Leave Documentation", "Submission deadline", "5 working days after return", "Required evidence", "Medical certificate", "Review authority", "Department Leave Committee", "Processing period", "7 working days", "Application channel", "Student leave portal"],
+    ["Attendance Record Correction", "Correction request window", "7 days after publication", "Required approval", "Course instructor confirmation", "Processing period", "3 working days", "Application channel", "Attendance correction portal", "Escalation authority", "Department Attendance Coordinator"],
+    ["Approved Activity Attendance", "Application deadline", "3 working days before activity", "Required evidence", "Activity participation certificate", "Approving authority", "Student Activity Coordinator", "Evidence submission deadline", "5 working days after activity", "Recording channel", "Institutional attendance portal"],
+    ["Laboratory Attendance Review", "Review frequency", "Every two weeks", "Responsible authority", "Laboratory Coordinator", "Correction window", "5 working days", "Evidence requirement", "Laboratory session record", "Notification channel", "Institutional email"],
+    ["Attendance Advisory Meeting", "Meeting duration", "20 minutes", "Scheduling channel", "Student advisory portal", "Responsible advisor", "Department mentor", "Follow-up interval", "14 days", "Record retention", "One academic year"]
+  ],
+
+  "examinations": [
+    ["Answer Script Inspection", "Application window", "7 days after result publication", "Inspection duration", "30 minutes", "Required identification", "University identity card", "Responsible authority", "Examination Records Unit", "Booking channel", "Examination services portal"],
+    ["Examination Accommodation", "Application deadline", "15 days before examination", "Required evidence", "Approved accessibility documentation", "Approving authority", "Examination Accommodation Committee", "Decision period", "7 working days", "Notification channel", "Institutional email"],
+    ["Digital Examination Receipt", "Availability period", "90 days", "Download channel", "Examination portal", "Required authentication", "Student account login", "Correction window", "5 working days", "Responsible office", "Examination Services Unit"],
+    ["Examination Schedule Query", "Query submission channel", "Examination helpdesk", "Response period", "2 working days", "Required information", "Course code", "Escalation authority", "Examination Coordinator", "Record retention", "One semester"],
+    ["Practical Assessment Record", "Publication deadline", "10 working days after assessment", "Review window", "5 working days", "Responsible authority", "Practical Assessment Coordinator", "Access channel", "Academic assessment portal", "Retention period", "2 academic years"]
+  ],
+
+  "placements": [
+    ["Internship Completion Record", "Submission deadline", "10 working days after internship", "Required evidence", "Internship completion certificate", "Review authority", "Internship Coordinator", "Processing period", "5 working days", "Submission channel", "Internship portal"],
+    ["Mock Interview Programme", "Session duration", "30 minutes", "Booking window", "7 days in advance", "Maximum monthly sessions", "2", "Responsible unit", "Career Development Centre", "Feedback period", "3 working days"],
+    ["Employer Information Session", "Registration deadline", "24 hours before session", "Attendance evidence", "Session participation record", "Registration channel", "Career events portal", "Responsible authority", "Placement Coordinator", "Feedback deadline", "3 working days after session"],
+    ["Career Portfolio Review", "Maximum file size", "10 MB", "Accepted format", "PDF", "Review period", "5 working days", "Responsible unit", "Career Advisory Team", "Submission channel", "Career portfolio portal"],
+    ["Alumni Career Mentoring", "Session duration", "45 minutes", "Meeting frequency", "Once per month", "Registration channel", "Alumni mentoring portal", "Responsible office", "Alumni Relations Unit", "Cancellation deadline", "24 hours before meeting"]
+  ],
+
+  "admissions": [
+    ["Admission Document Submission", "Submission deadline", "10 working days after provisional admission", "Required evidence", "Academic qualification records", "Submission channel", "Admission portal", "Verification authority", "Admission Records Unit", "Processing period", "5 working days"],
+    ["Admission Counselling", "Session duration", "30 minutes", "Booking window", "14 days in advance", "Responsible authority", "Admission Counselling Team", "Booking channel", "Admission portal", "Confirmation method", "Registered email"],
+    ["Admission Record Correction", "Application window", "15 days after registration", "Required evidence", "Official supporting document", "Processing period", "7 working days", "Responsible authority", "Admission Records Committee", "Application channel", "Admission services portal"],
+    ["Admission Orientation", "Programme duration", "2 days", "Registration channel", "Orientation portal", "Responsible office", "Student Transition Unit", "Attendance requirement", "Both programme days", "Feedback deadline", "3 days after orientation"],
+    ["Admission Status Enquiry", "Enquiry channel", "Admission helpdesk", "Response period", "3 working days", "Required identifier", "Application reference number", "Escalation authority", "Admission Services Coordinator", "Record retention", "One admission cycle"]
+  ],
+
+  "library": [
+    ["Book Borrowing", "Maximum borrowed books", "5 books", "Loan period", "14 days", "Required identification", "University identity card", "Issuing authority", "Library Circulation Desk", "Account access", "Library portal"],
+    ["Book Renewal", "Maximum renewals", "2", "Renewal duration", "14 days", "Renewal restriction", "Active reservation by another reader", "Renewal channel", "Library portal", "Request deadline", "Before the existing due date"],
+    ["Digital Library Access", "Authentication method", "Institutional account", "Availability", "24 hours a day", "Responsible unit", "Digital Resources Team", "Support response period", "2 working days", "Support channel", "Library helpdesk"],
+    ["Study Room Reservation", "Maximum reservation duration", "2 hours", "Booking window", "7 days in advance", "Maximum group size", "6 students", "Cancellation deadline", "2 hours before reservation", "Booking channel", "Library reservation portal"],
+    ["Library Resource Request", "Request channel", "Library acquisition portal", "Review period", "10 working days", "Required information", "Title and author", "Review authority", "Library Acquisition Committee", "Notification channel", "Institutional email"]
+  ],
+
+  "hostel": [
+    ["Room Allocation", "Application channel", "Accommodation portal", "Allocation period", "10 working days", "Required identification", "University identity card", "Approving authority", "Accommodation Committee", "Confirmation deadline", "5 working days after allocation"],
+    ["Hostel Maintenance", "Request channel", "Hostel maintenance portal", "Routine response period", "2 working days", "Responsible authority", "Hostel Facilities Unit", "Required information", "Room number and issue description", "Escalation period", "3 working days"],
+    ["Hostel Visitor Registration", "Registration requirement", "Visitor identity record", "Approving authority", "Hostel reception", "Registration channel", "Visitor registration desk", "Record retention", "90 days", "Required host information", "Resident room number"],
+    ["Temporary Hostel Leave", "Application deadline", "24 hours before departure", "Application channel", "Hostel leave portal", "Approving authority", "Hostel Warden", "Required information", "Departure and return dates", "Return confirmation", "Hostel reception check-in"],
+    ["Hostel Room Inventory", "Inspection frequency", "Once per semester", "Responsible authority", "Accommodation Services Unit", "Discrepancy reporting window", "3 working days", "Reporting channel", "Hostel services portal", "Record retention", "One academic year"]
+  ],
+
+  "scholarships_fees": [
+    ["Merit Scholarship", "Minimum academic score", "8.5 CGPA", "Application window", "30 days", "Required evidence", "Latest academic transcript", "Review authority", "Scholarship Committee", "Application channel", "Scholarship portal"],
+    ["Financial Assistance", "Required evidence", "Household income documentation", "Review period", "15 working days", "Application channel", "Student financial support portal", "Approving authority", "Financial Assistance Committee", "Renewal frequency", "Once per academic year"],
+    ["Fee Instalment Request", "Maximum instalments", "3", "Application deadline", "10 days before fee due date", "Review period", "5 working days", "Approving authority", "Student Finance Office", "Application channel", "Fee services portal"],
+    ["Fee Receipt Correction", "Request window", "30 days after payment", "Required evidence", "Payment reference record", "Processing period", "5 working days", "Responsible authority", "Finance Records Unit", "Application channel", "Fee services portal"],
+    ["Scholarship Renewal", "Renewal frequency", "Once per academic year", "Required evidence", "Updated academic transcript", "Review period", "10 working days", "Application channel", "Scholarship portal", "Notification method", "Institutional email"]
+  ],
+
+  "student_support": [
+    ["Student Grievance", "Submission channel", "Student grievance portal", "Acknowledgement period", "2 working days", "Initial review period", "10 working days", "Responsible authority", "Student Grievance Committee", "Appeal window", "15 days"],
+    ["Accessibility Support", "Application channel", "Accessibility services portal", "Required evidence", "Relevant supporting documentation", "Review period", "7 working days", "Responsible office", "Accessibility Support Unit", "Review frequency", "Once per semester"],
+    ["Peer Mentoring", "Meeting frequency", "Once every two weeks", "Session duration", "30 minutes", "Registration channel", "Peer mentoring portal", "Responsible authority", "Student Mentoring Coordinator", "Feedback frequency", "Once per month"],
+    ["Counselling Appointment", "Session duration", "45 minutes", "Booking channel", "Student wellness portal", "Routine appointment window", "5 working days", "Responsible unit", "Student Wellness Centre", "Cancellation deadline", "24 hours before appointment"],
+    ["Student Welfare Request", "Application channel", "Student welfare portal", "Acknowledgement period", "2 working days", "Review period", "10 working days", "Responsible authority", "Student Welfare Committee", "Notification channel", "Institutional email"]
+  ]
+}

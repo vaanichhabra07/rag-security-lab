@@ -1,0 +1,10 @@
+Meridian University
+Policy: Fee Payment
+Document ID: ADMINISTRATION_004
+Source: Synthetic institutional policy
+
+Payment mode: Online university portal.
+Late fee: INR 100 per day.
+Grace period: 7 days.
+Receipt location: Student ERP.
+Responsible office: Accounts department.

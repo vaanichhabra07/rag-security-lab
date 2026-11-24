@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_026
+Domain: admissions
+Policy title: Admission Document Submission
+
+Scope
+This document describes the admission document submission procedure within the fictional institution.
+
+Policy provisions
+1. Submission deadline: 10 working days after provisional admission.
+2. Required evidence: Academic qualification records.
+3. Submission channel: Admission portal.
+4. Verification authority: Admission Records Unit.
+5. Processing period: 5 working days.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

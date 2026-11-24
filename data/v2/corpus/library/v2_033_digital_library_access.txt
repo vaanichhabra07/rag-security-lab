@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_033
+Domain: library
+Policy title: Digital Library Access
+
+Scope
+This document describes the digital library access procedure within the fictional institution.
+
+Policy provisions
+1. Authentication method: Institutional account.
+2. Availability: 24 hours a day.
+3. Responsible unit: Digital Resources Team.
+4. Support response period: 2 working days.
+5. Support channel: Library helpdesk.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

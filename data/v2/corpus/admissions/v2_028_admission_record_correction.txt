@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_028
+Domain: admissions
+Policy title: Admission Record Correction
+
+Scope
+This document describes the admission record correction procedure within the fictional institution.
+
+Policy provisions
+1. Application window: 15 days after registration.
+2. Required evidence: Official supporting document.
+3. Processing period: 7 working days.
+4. Responsible authority: Admission Records Committee.
+5. Application channel: Admission services portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

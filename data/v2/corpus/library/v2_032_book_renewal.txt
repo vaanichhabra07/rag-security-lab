@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_032
+Domain: library
+Policy title: Book Renewal
+
+Scope
+This document describes the book renewal procedure within the fictional institution.
+
+Policy provisions
+1. Maximum renewals: 2.
+2. Renewal duration: 14 days.
+3. Renewal restriction: Active reservation by another reader.
+4. Renewal channel: Library portal.
+5. Request deadline: Before the existing due date.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

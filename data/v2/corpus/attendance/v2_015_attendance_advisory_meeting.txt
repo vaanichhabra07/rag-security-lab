@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_015
+Domain: attendance
+Policy title: Attendance Advisory Meeting
+
+Scope
+This document describes the attendance advisory meeting procedure within the fictional institution.
+
+Policy provisions
+1. Meeting duration: 20 minutes.
+2. Scheduling channel: Student advisory portal.
+3. Responsible advisor: Department mentor.
+4. Follow-up interval: 14 days.
+5. Record retention: One academic year.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

@@ -1,0 +1,10 @@
+Meridian University
+Policy: Laboratory Attendance
+Document ID: ATTENDANCE_006
+Source: Synthetic institutional policy
+
+Minimum attendance: 80%.
+Session duration: 2 hours.
+Makeup session limit: 2 per semester.
+Approval authority: Lab coordinator.
+Required record: Laboratory journal.

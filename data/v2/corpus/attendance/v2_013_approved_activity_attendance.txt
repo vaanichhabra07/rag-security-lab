@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_013
+Domain: attendance
+Policy title: Approved Activity Attendance
+
+Scope
+This document describes the approved activity attendance procedure within the fictional institution.
+
+Policy provisions
+1. Application deadline: 3 working days before activity.
+2. Required evidence: Activity participation certificate.
+3. Approving authority: Student Activity Coordinator.
+4. Evidence submission deadline: 5 working days after activity.
+5. Recording channel: Institutional attendance portal.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

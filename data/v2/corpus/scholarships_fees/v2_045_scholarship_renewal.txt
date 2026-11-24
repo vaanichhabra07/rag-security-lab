@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_045
+Domain: scholarships_fees
+Policy title: Scholarship Renewal
+
+Scope
+This document describes the scholarship renewal procedure within the fictional institution.
+
+Policy provisions
+1. Renewal frequency: Once per academic year.
+2. Required evidence: Updated academic transcript.
+3. Review period: 10 working days.
+4. Application channel: Scholarship portal.
+5. Notification method: Institutional email.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

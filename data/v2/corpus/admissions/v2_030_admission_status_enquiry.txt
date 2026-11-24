@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_030
+Domain: admissions
+Policy title: Admission Status Enquiry
+
+Scope
+This document describes the admission status enquiry procedure within the fictional institution.
+
+Policy provisions
+1. Enquiry channel: Admission helpdesk.
+2. Response period: 3 working days.
+3. Required identifier: Application reference number.
+4. Escalation authority: Admission Services Coordinator.
+5. Record retention: One admission cycle.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

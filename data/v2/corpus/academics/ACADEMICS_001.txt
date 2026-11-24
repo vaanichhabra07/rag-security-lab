@@ -1,0 +1,10 @@
+Meridian University
+Policy: Course Registration
+Document ID: ACADEMICS_001
+Source: Synthetic institutional policy
+
+Registration period: 14 days.
+Maximum semester credits: 26.
+Minimum semester credits: 16.
+Registration portal: Student ERP.
+Approval authority: Academic advisor.

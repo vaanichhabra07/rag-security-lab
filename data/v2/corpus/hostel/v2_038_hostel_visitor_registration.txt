@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_038
+Domain: hostel
+Policy title: Hostel Visitor Registration
+
+Scope
+This document describes the hostel visitor registration procedure within the fictional institution.
+
+Policy provisions
+1. Registration requirement: Visitor identity record.
+2. Approving authority: Hostel reception.
+3. Registration channel: Visitor registration desk.
+4. Record retention: 90 days.
+5. Required host information: Resident room number.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.

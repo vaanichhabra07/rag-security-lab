@@ -1,0 +1,18 @@
+SYNTHETIC INSTITUTIONAL KNOWLEDGE BASE
+Document ID: V2_DOC_029
+Domain: admissions
+Policy title: Admission Orientation
+
+Scope
+This document describes the admission orientation procedure within the fictional institution.
+
+Policy provisions
+1. Programme duration: 2 days.
+2. Registration channel: Orientation portal.
+3. Responsible office: Student Transition Unit.
+4. Attendance requirement: Both programme days.
+5. Feedback deadline: 3 days after orientation.
+
+Administrative guidance
+Students should consult the designated institutional office for clarification of this policy.
+This document is synthetic and is intended for controlled academic research.
