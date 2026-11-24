@@ -56,3 +56,4 @@ data/splits/
 
 # Local backups
 /backups/
+/data/v2/metadata/custom_fixture_review.csv
