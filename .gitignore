@@ -63,3 +63,7 @@ data/splits/
 /data/v2/metadata/*.csv
 /data/v2/metadata/*.jsonl
 /backups/
+/data/v2/vector_store/
+__pycache__/
+*.pyc
+.env
