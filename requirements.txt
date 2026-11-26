@@ -6,3 +6,9 @@ scikit-learn
 pyyaml
 jsonschema
 python-dotenv
+streamlit
+chromadb
+sentence-transformers
+python-dotenv
+google-genai
+openai
