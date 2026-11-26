@@ -23,7 +23,23 @@ st.set_page_config(
 
 DEFENSE_MODES = {
     "D0": "D0 — Baseline RAG",
-    "D1": "D1 — Rule-Based Defense"
+    "D1": "D1 — Rule-Based Defense",
+    "D2": "D2 — LLM-Based Detection"
+}
+
+DEFENSE_DESCRIPTIONS = {
+    "D0": (
+        "Baseline RAG: No additional experimental "
+        "prompt-injection defenses are active."
+    ),
+    "D1": (
+        "Rule-Based Defense: User inputs and retrieved "
+        "context are scanned using predefined security rules."
+    ),
+    "D2": (
+        "LLM-Based Detection: User inputs and retrieved "
+        "context are evaluated by an AI security classifier."
+    )
 }
 
 
@@ -33,13 +49,11 @@ DEFENSE_MODES = {
 
 @st.cache_resource
 def load_pipeline():
-
     return RAGPipeline()
 
 
 @st.cache_data
 def load_corpus():
-
     return load_documents()
 
 
@@ -47,25 +61,58 @@ def load_corpus():
 # SESSION STATE
 # ==================================================
 
-if "messages" not in st.session_state:
+SESSION_DEFAULTS = {
+    "messages": [],
+    "last_result": None,
+    "request_count": 0,
+    "detected_count": 0,
+    "blocked_count": 0,
+    "classifier_error_count": 0,
+    "request_history": []
+}
+
+for key, value in SESSION_DEFAULTS.items():
+
+    if key not in st.session_state:
+
+        st.session_state[key] = value
+
+
+# ==================================================
+# HELPER FUNCTIONS
+# ==================================================
+
+def format_tokens(value):
+
+    if value is None:
+        return "Unavailable"
+
+    return f"{value:,}"
+
+
+def format_latency(value):
+
+    if value is None:
+        return "Unavailable"
+
+    return f"{value:.2f} ms"
+
+
+def reset_session():
 
     st.session_state.messages = []
 
-if "last_result" not in st.session_state:
-
     st.session_state.last_result = None
-
-if "request_count" not in st.session_state:
 
     st.session_state.request_count = 0
 
-if "detected_count" not in st.session_state:
-
     st.session_state.detected_count = 0
 
-if "blocked_count" not in st.session_state:
-
     st.session_state.blocked_count = 0
+
+    st.session_state.classifier_error_count = 0
+
+    st.session_state.request_history = []
 
 
 # ==================================================
@@ -106,8 +153,7 @@ with st.sidebar:
     if defense_mode == "D0":
 
         st.warning(
-            "Baseline mode: Experimental "
-            "defenses disabled."
+            "Experimental defenses disabled."
         )
 
     elif defense_mode == "D1":
@@ -115,6 +161,18 @@ with st.sidebar:
         st.success(
             "Rule-based input and context "
             "scanning enabled."
+        )
+
+    elif defense_mode == "D2":
+
+        st.success(
+            "LLM-based semantic security "
+            "classification enabled."
+        )
+
+        st.caption(
+            "D2 requires additional API requests "
+            "and may increase response latency."
         )
 
     top_k = st.slider(
@@ -132,7 +190,7 @@ with st.sidebar:
 
     st.caption("Vector database: ChromaDB")
 
-    st.caption("LLM provider: Groq (current configuration)")
+    st.caption("Current API configuration: Groq")
 
     st.divider()
 
@@ -153,6 +211,11 @@ with st.sidebar:
         st.session_state.blocked_count
     )
 
+    st.metric(
+        "Classifier Errors",
+        st.session_state.classifier_error_count
+    )
+
     st.divider()
 
     if st.button(
@@ -160,15 +223,7 @@ with st.sidebar:
         use_container_width=True
     ):
 
-        st.session_state.messages = []
-
-        st.session_state.last_result = None
-
-        st.session_state.request_count = 0
-
-        st.session_state.detected_count = 0
-
-        st.session_state.blocked_count = 0
+        reset_session()
 
         st.rerun()
 
@@ -199,17 +254,13 @@ if page == "AI Chatbot":
     if defense_mode == "D0":
 
         st.info(
-            "D0 — Baseline RAG: No additional "
-            "experimental prompt-injection "
-            "defenses are active."
+            DEFENSE_DESCRIPTIONS[defense_mode]
         )
 
-    elif defense_mode == "D1":
+    else:
 
         st.success(
-            "D1 — Rule-Based Defense: "
-            "User inputs and retrieved context "
-            "are scanned for suspicious instructions."
+            DEFENSE_DESCRIPTIONS[defense_mode]
         )
 
     result = st.session_state.last_result
@@ -233,18 +284,24 @@ if page == "AI Chatbot":
     col3.metric(
         "Last Latency",
         (
-            f"{result['total_latency_ms']:.0f} ms"
+            format_latency(
+                result["total_latency_ms"]
+            )
             if result
             else "—"
         )
     )
 
     col4.metric(
-        "Last Token Usage",
+        "Last Combined Tokens",
         (
-            result["total_tokens"]
+            format_tokens(
+                result.get(
+                    "combined_total_tokens",
+                    result.get("total_tokens")
+                )
+            )
             if result
-            and result["total_tokens"] is not None
             else "—"
         )
     )
@@ -268,7 +325,14 @@ if page == "AI Chatbot":
                     + message["defense_mode"]
                 )
 
-            if message.get("blocked"):
+            if message.get("execution_status") == "defense_error":
+
+                st.error(
+                    "The security classifier "
+                    "encountered an error."
+                )
+
+            elif message.get("blocked"):
 
                 st.warning(
                     "Request blocked by security defense."
@@ -296,7 +360,12 @@ if page == "AI Chatbot":
 
                 "Use the defense configuration "
                 "in the sidebar to switch between "
-                "baseline and protected modes."
+                "D0, D1 and D2."
+            )
+
+            st.caption(
+                "Questions are currently processed "
+                "independently of previous messages."
             )
 
     # ----------------------------------------------
@@ -363,7 +432,10 @@ if page == "AI Chatbot":
                     "attack_detected":
                         result.get(
                             "attack_detected", False
-                        )
+                        ),
+
+                    "execution_status":
+                        result.get("execution_status")
                 })
 
                 st.session_state.last_result = result
@@ -378,21 +450,66 @@ if page == "AI Chatbot":
 
                     st.session_state.blocked_count += 1
 
+                st.session_state.classifier_error_count += (
+                    result.get("classifier_errors", 0)
+                )
+
+                st.session_state.request_history.append({
+
+                    "Defense": result["defense_mode"],
+
+                    "Model": result["model"],
+
+                    "Detected": (
+                        result.get("attack_detected", False)
+                        if result["defense_mode"] != "D0"
+                        else None
+                    ),
+
+                    "Blocked":
+                        result.get("blocked", False),
+
+                    "Latency (ms)":
+                        result.get("total_latency_ms"),
+
+                    "Generation Tokens":
+                        result.get("total_tokens"),
+
+                    "Defense Tokens":
+                        result.get("defense_total_tokens", 0),
+
+                    "Combined Tokens":
+                        result.get(
+                            "combined_total_tokens",
+                            result.get("total_tokens")
+                        ),
+
+                    "Classifier Errors":
+                        result.get("classifier_errors", 0),
+
+                    "Status":
+                        result.get("execution_status")
+                })
+
                 st.rerun()
 
             except Exception as error:
 
-                st.error(
+                error_message = (
                     f"Request failed: "
                     f"{type(error).__name__}. "
                     "Check your API configuration, "
                     "connection and backend."
                 )
 
-                st.caption(
-                    "Run the backend testing scripts "
-                    "to diagnose the error."
-                )
+                st.session_state.messages.append({
+                    "role": "assistant",
+                    "content": error_message,
+                    "defense_mode": defense_mode,
+                    "execution_status": "error"
+                })
+
+                st.rerun()
 
     # ==============================================
     # RESPONSE DIAGNOSTICS
@@ -412,6 +529,13 @@ if page == "AI Chatbot":
             f"Status: {result['execution_status']}"
         )
 
+        if result["defense_mode"] != defense_mode:
+
+            st.info(
+                "These diagnostics belong to the previous "
+                "request and its selected defense."
+            )
+
         # ------------------------------------------
         # LATENCY METRICS
         # ------------------------------------------
@@ -420,22 +544,30 @@ if page == "AI Chatbot":
 
         c1.metric(
             "Retrieval Latency",
-            f"{result['retrieval_latency_ms']:.2f} ms"
+            format_latency(
+                result.get("retrieval_latency_ms")
+            )
         )
 
         c2.metric(
             "Generation Latency",
-            f"{result['generation_latency_ms']:.2f} ms"
+            format_latency(
+                result.get("generation_latency_ms")
+            )
         )
 
         c3.metric(
             "Defense Latency",
-            f"{result.get('defense_latency_ms', 0):.4f} ms"
+            format_latency(
+                result.get("defense_latency_ms", 0)
+            )
         )
 
         c4.metric(
             "Total Latency",
-            f"{result['total_latency_ms']:.2f} ms"
+            format_latency(
+                result.get("total_latency_ms")
+            )
         )
 
         # ------------------------------------------
@@ -445,35 +577,34 @@ if page == "AI Chatbot":
         c5, c6, c7, c8 = st.columns(4)
 
         c5.metric(
-            "Input Tokens",
-            (
-                result["input_tokens"]
-                if result["input_tokens"] is not None
-                else "Unavailable"
+            "Generation Input Tokens",
+            format_tokens(
+                result.get("input_tokens")
             )
         )
 
         c6.metric(
-            "Output Tokens",
-            (
-                result["output_tokens"]
-                if result["output_tokens"] is not None
-                else "Unavailable"
+            "Generation Output Tokens",
+            format_tokens(
+                result.get("output_tokens")
             )
         )
 
         c7.metric(
-            "Total Tokens",
-            (
-                result["total_tokens"]
-                if result["total_tokens"] is not None
-                else "Unavailable"
+            "Generation Total Tokens",
+            format_tokens(
+                result.get("total_tokens")
             )
         )
 
         c8.metric(
-            "Retrieved Chunks",
-            len(result.get("retrieved_chunks", []))
+            "Combined Tokens",
+            format_tokens(
+                result.get(
+                    "combined_total_tokens",
+                    result.get("total_tokens")
+                )
+            )
         )
 
         # ==========================================
@@ -496,6 +627,10 @@ if page == "AI Chatbot":
 
         llm_called = result.get("llm_called", False)
 
+        classifier_errors = result.get(
+            "classifier_errors", 0
+        )
+
         flagged_chunks = result.get(
             "flagged_chunks", []
         )
@@ -504,19 +639,27 @@ if page == "AI Chatbot":
             "matched_rules", []
         )
 
+        if not detection_active:
+
+            detection_status = "Not evaluated"
+
+        elif attack_detected:
+
+            detection_status = "Detected"
+
+        elif classifier_errors:
+
+            detection_status = "Incomplete"
+
+        else:
+
+            detection_status = "Not detected"
+
         s1, s2, s3, s4 = st.columns(4)
 
         s1.metric(
             "Attack Detection",
-            (
-                "Not evaluated"
-                if not detection_active
-                else (
-                    "Detected"
-                    if attack_detected
-                    else "Not detected"
-                )
-            )
+            detection_status
         )
 
         s2.metric(
@@ -525,12 +668,12 @@ if page == "AI Chatbot":
         )
 
         s3.metric(
-            "Filtered Chunks",
+            "Excluded Chunks",
             len(flagged_chunks)
         )
 
         s4.metric(
-            "LLM Called",
+            "Answer LLM Called",
             "Yes" if llm_called else "No"
         )
 
@@ -542,8 +685,14 @@ if page == "AI Chatbot":
 
             st.info(
                 "D0 does not perform application-level "
-                "attack detection. An undetected attack "
-                "does not mean the request is safe."
+                "attack detection."
+            )
+
+        elif result.get("execution_status") == "defense_error":
+
+            st.error(
+                "The request was blocked because "
+                "security classification was unavailable."
             )
 
         elif blocked:
@@ -553,11 +702,18 @@ if page == "AI Chatbot":
                 "the active security defense."
             )
 
+        elif classifier_errors:
+
+            st.warning(
+                "Security classification was incomplete. "
+                "Some classifier requests failed."
+            )
+
         elif attack_detected:
 
             st.warning(
                 "Suspicious content was detected. "
-                "Flagged context chunks were removed "
+                "Flagged context chunks were excluded "
                 "before generation."
             )
 
@@ -565,11 +721,11 @@ if page == "AI Chatbot":
 
             st.success(
                 "No suspicious content was detected "
-                "by the configured security rules."
+                "by the configured defense."
             )
 
         # ------------------------------------------
-        # MATCHED SECURITY RULES
+        # D1 MATCHED SECURITY RULES
         # ------------------------------------------
 
         if matched_rules:
@@ -611,6 +767,200 @@ if page == "AI Chatbot":
 
                     st.divider()
 
+        # ==========================================
+        # D2 LLM CLASSIFIER DIAGNOSTICS
+        # ==========================================
+
+        if result.get("defense_mode") == "D2":
+
+            st.divider()
+
+            st.subheader(
+                "LLM Classifier Diagnostics"
+            )
+
+            classifier_results = result.get(
+                "classifier_results", []
+            )
+
+            benign_count = sum(
+                scan.get("label") == "BENIGN"
+                for scan in classifier_results
+            )
+
+            adversarial_count = sum(
+                scan.get("label") == "ADVERSARIAL"
+                for scan in classifier_results
+            )
+
+            unknown_count = sum(
+                scan.get("label") == "UNKNOWN"
+                for scan in classifier_results
+            )
+
+            st.caption(
+                "Classifier model: "
+                + str(
+                    result.get(
+                        "classifier_model",
+                        "Unavailable"
+                    )
+                )
+            )
+
+            m1, m2, m3, m4 = st.columns(4)
+
+            m1.metric(
+                "Classifier Requests",
+                result.get(
+                    "defense_api_calls", 0
+                )
+            )
+
+            m2.metric(
+                "Benign",
+                benign_count
+            )
+
+            m3.metric(
+                "Adversarial",
+                adversarial_count
+            )
+
+            m4.metric(
+                "Unknown",
+                unknown_count
+            )
+
+            t1, t2, t3, t4 = st.columns(4)
+
+            t1.metric(
+                "Defense Input Tokens",
+                format_tokens(
+                    result.get("defense_input_tokens")
+                )
+            )
+
+            t2.metric(
+                "Defense Output Tokens",
+                format_tokens(
+                    result.get("defense_output_tokens")
+                )
+            )
+
+            t3.metric(
+                "Defense Total Tokens",
+                format_tokens(
+                    result.get("defense_total_tokens")
+                )
+            )
+
+            t4.metric(
+                "Classifier Errors",
+                classifier_errors
+            )
+
+            if classifier_errors:
+
+                st.warning(
+                    "One or more classifier requests "
+                    "failed. UNKNOWN classifications "
+                    "must not be counted as successful "
+                    "attack detections."
+                )
+
+            st.markdown(
+                "#### Individual Classification Results"
+            )
+
+            for index, scan in enumerate(
+                classifier_results, 1
+            ):
+
+                channel = scan.get(
+                    "channel", "unknown"
+                )
+
+                label = scan.get(
+                    "label", "UNKNOWN"
+                )
+
+                with st.expander(
+                    f"Classification {index} — "
+                    f"{channel.replace('_', ' ').title()} "
+                    f"— {label}",
+                    expanded=(index == 1)
+                ):
+
+                    if label == "BENIGN":
+
+                        st.success("Label: BENIGN")
+
+                    elif label == "ADVERSARIAL":
+
+                        st.error("Label: ADVERSARIAL")
+
+                    else:
+
+                        st.warning("Label: UNKNOWN")
+
+                    if scan.get("document_id"):
+
+                        st.write(
+                            "Document:",
+                            scan["document_id"]
+                        )
+
+                    if scan.get("chunk_id"):
+
+                        st.write(
+                            "Chunk:",
+                            scan["chunk_id"]
+                        )
+
+                    st.write(
+                        "Category:",
+                        scan.get("category", "Unknown")
+                    )
+
+                    st.write(
+                        "Reason:",
+                        scan.get("reason", "Unavailable")
+                    )
+
+                    st.write(
+                        "Action:",
+                        scan.get("action", "Unknown")
+                    )
+
+                    st.write(
+                        "Classification status:",
+                        scan.get("classification_status")
+                    )
+
+                    st.write(
+                        "Detection latency:",
+                        format_latency(
+                            scan.get("detection_latency_ms")
+                        )
+                    )
+
+                    st.write(
+                        "Tokens:",
+                        format_tokens(
+                            scan.get("total_tokens")
+                        )
+                    )
+
+                    if scan.get("error_type"):
+
+                        st.error(
+                            "Error type: "
+                            + scan["error_type"]
+                        )
+
+                    st.json(scan)
+
         # ------------------------------------------
         # FILTERED CONTEXT
         # ------------------------------------------
@@ -618,13 +968,13 @@ if page == "AI Chatbot":
         if flagged_chunks:
 
             with st.expander(
-                "Filtered Context Chunks",
+                "Excluded Context Chunks",
                 expanded=False
             ):
 
                 st.warning(
                     "These chunks were excluded "
-                    "from the generation context."
+                    "by the active defense."
                 )
 
                 for chunk in flagged_chunks:
@@ -764,9 +1114,7 @@ elif page == "Attack Simulator":
         "defense mechanisms are integrated."
     )
 
-    st.markdown(
-        "### Planned Attack Families"
-    )
+    st.markdown("### Planned Attack Families")
 
     st.markdown(
         """
@@ -778,6 +1126,12 @@ elif page == "Attack Simulator":
         """
     )
 
+    st.markdown("### Available Defense Configurations")
+
+    for mode, description in DEFENSE_MODES.items():
+
+        st.write(description)
+
 
 # ==================================================
 # DEFENSE COMPARISON PAGE
@@ -788,9 +1142,8 @@ elif page == "Defense Comparison":
     st.subheader("Defense Comparison")
 
     st.info(
-        "Side-by-side experimental comparison "
-        "will be implemented after D0–D5 "
-        "integration."
+        "Full side-by-side experimental comparison "
+        "will be implemented after D0–D5 integration."
     )
 
     defense_table = [
@@ -798,42 +1151,97 @@ elif page == "Defense Comparison":
         {
             "Configuration": "D0",
             "Defense": "Baseline RAG",
+            "Technique": "No experimental defense",
             "Status": "Implemented"
         },
 
         {
             "Configuration": "D1",
             "Defense": "Rule-Based Detection",
+            "Technique": "Regex and text normalization",
             "Status": "Implemented"
         },
 
         {
             "Configuration": "D2",
-            "Defense": "ML/LLM Detection",
-            "Status": "Pending"
+            "Defense": "LLM-Based Detection",
+            "Technique": "Prompted binary classification",
+            "Status": "Implemented"
         },
 
         {
             "Configuration": "D3",
             "Defense": "Context Isolation",
+            "Technique": "Trust-boundary separation",
             "Status": "Pending"
         },
 
         {
             "Configuration": "D4",
             "Defense": "Output Validation",
+            "Technique": "Generated response validation",
             "Status": "Pending"
         },
 
         {
             "Configuration": "D5",
             "Defense": "Combined Defense",
+            "Technique": "Multi-layer protection",
             "Status": "Pending"
         }
     ]
 
     st.dataframe(
         defense_table,
+        use_container_width=True,
+        hide_index=True
+    )
+
+    st.divider()
+
+    st.markdown("### D1 versus D2")
+
+    comparison_table = [
+
+        {
+            "Feature": "Detection method",
+            "D1": "Regular expressions",
+            "D2": "LLM classification"
+        },
+
+        {
+            "Feature": "Semantic understanding",
+            "D1": "Limited",
+            "D2": "Model-dependent"
+        },
+
+        {
+            "Feature": "Additional API requests",
+            "D1": "No",
+            "D2": "Yes"
+        },
+
+        {
+            "Feature": "Detection explanation",
+            "D1": "Matched rules",
+            "D2": "Classification reason"
+        },
+
+        {
+            "Feature": "Failure handling",
+            "D1": "Local processing",
+            "D2": "Configurable failure policy"
+        },
+
+        {
+            "Feature": "Generalization performance",
+            "D1": "Evaluation pending",
+            "D2": "Evaluation pending"
+        }
+    ]
+
+    st.dataframe(
+        comparison_table,
         use_container_width=True,
         hide_index=True
     )
@@ -852,7 +1260,7 @@ elif page == "Analytics":
         "not formal benchmark results."
     )
 
-    a1, a2, a3 = st.columns(3)
+    a1, a2, a3, a4 = st.columns(4)
 
     a1.metric(
         "Processed Requests",
@@ -868,6 +1276,156 @@ elif page == "Analytics":
         "Blocked Requests",
         st.session_state.blocked_count
     )
+
+    a4.metric(
+        "Classifier Errors",
+        st.session_state.classifier_error_count
+    )
+
+    history = st.session_state.request_history
+
+    if history:
+
+        st.divider()
+
+        st.subheader("Session Defense Summary")
+
+        summary = []
+
+        for mode in DEFENSE_MODES:
+
+            rows = [
+                row for row in history
+                if row["Defense"] == mode
+            ]
+
+            if not rows:
+                continue
+
+            latencies = [
+                row["Latency (ms)"]
+                for row in rows
+                if row["Latency (ms)"] is not None
+            ]
+
+            token_values = [
+                row["Combined Tokens"]
+                for row in rows
+                if row["Combined Tokens"] is not None
+            ]
+
+            summary.append({
+
+                "Defense": mode,
+
+                "Requests": len(rows),
+
+                "Detected": (
+                    sum(
+                        row["Detected"] is True
+                        for row in rows
+                    )
+                    if mode != "D0"
+                    else "Not evaluated"
+                ),
+
+                "Blocked": sum(
+                    row["Blocked"]
+                    for row in rows
+                ),
+
+                "Classifier Errors": sum(
+                    row["Classifier Errors"]
+                    for row in rows
+                ),
+
+                "Average Latency (ms)": (
+                    round(
+                        sum(latencies) / len(latencies),
+                        2
+                    )
+                    if latencies
+                    else None
+                ),
+
+                "Average Combined Tokens": (
+                    round(
+                        sum(token_values) / len(token_values),
+                        2
+                    )
+                    if token_values
+                    else None
+                )
+            })
+
+        st.dataframe(
+            summary,
+            use_container_width=True,
+            hide_index=True
+        )
+
+        st.subheader("Average Session Latency")
+
+        latency_data = [
+            {
+                "Defense": row["Defense"],
+                "Average Latency (ms)":
+                    row["Average Latency (ms)"]
+            }
+            for row in summary
+            if row["Average Latency (ms)"] is not None
+        ]
+
+        if latency_data:
+
+            st.bar_chart(
+                latency_data,
+                x="Defense",
+                y="Average Latency (ms)"
+            )
+
+        st.subheader("Average Session Token Usage")
+
+        token_data = [
+            {
+                "Defense": row["Defense"],
+                "Average Combined Tokens":
+                    row["Average Combined Tokens"]
+            }
+            for row in summary
+            if row["Average Combined Tokens"] is not None
+        ]
+
+        if token_data:
+
+            st.bar_chart(
+                token_data,
+                x="Defense",
+                y="Average Combined Tokens"
+            )
+
+        st.caption(
+            "Session averages may contain different "
+            "questions and blocked requests. They are "
+            "not controlled experimental comparisons."
+        )
+
+        with st.expander(
+            "Session Request History"
+        ):
+
+            st.dataframe(
+                history,
+                use_container_width=True,
+                hide_index=True
+            )
+
+    else:
+
+        st.info(
+            "Ask questions using D0, D1 and D2 "
+            "to populate session analytics."
+        )
 
     st.divider()
 

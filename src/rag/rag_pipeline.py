@@ -4,7 +4,6 @@ import time
 import uuid
 
 from src.rag.retriever import Retriever
-
 from src.rag.llm_client import LLMClient
 
 from src.rag.prompt_builder import (
@@ -15,16 +14,21 @@ from src.defenses.rule_based import (
     RuleBasedDefense
 )
 
+from src.defenses.llm_detector import (
+    LLMDetector
+)
+
 
 class RAGPipeline:
 
-    SUPPORTED_MODES = {"D0", "D1"}
+    SUPPORTED_MODES = {"D0", "D1", "D2"}
 
     def __init__(
         self,
         provider=None,
         retriever=None,
-        llm_client=None
+        llm_client=None,
+        llm_detector=None
     ):
 
         self.retriever = (
@@ -40,6 +44,12 @@ class RAGPipeline:
         )
 
         self.rule_defense = RuleBasedDefense()
+
+        self.llm_detector = (
+            llm_detector
+            if llm_detector is not None
+            else LLMDetector()
+        )
 
         self.default_top_k = int(
             os.getenv("RAG_TOP_K", "3")
@@ -87,11 +97,9 @@ class RAGPipeline:
 
         start = time.perf_counter()
 
-        request_id = str(uuid.uuid4())
-
         result = {
 
-            "request_id": request_id,
+            "request_id": str(uuid.uuid4()),
 
             "defense_mode": defense_mode,
 
@@ -123,6 +131,24 @@ class RAGPipeline:
 
             "total_tokens": 0,
 
+            "defense_input_tokens": 0,
+
+            "defense_output_tokens": 0,
+
+            "defense_total_tokens": 0,
+
+            "defense_api_calls": 0,
+
+            "classifier_errors": 0,
+
+            "classifier_results": [],
+
+            "classifier_model": (
+                self.llm_detector.model
+                if defense_mode == "D2"
+                else None
+            ),
+
             "finish_reason": None,
 
             "attack_detected": False,
@@ -140,29 +166,96 @@ class RAGPipeline:
             "execution_status": "pending"
         }
 
+        def add_tokens(current, new):
+
+            if current is None or new is None:
+
+                return None
+
+            return current + new
+
+        def record_classifier(scan):
+
+            result["classifier_results"].append(
+                scan
+            )
+
+            result["defense_api_calls"] += 1
+
+            for key in [
+
+                "input_tokens",
+
+                "output_tokens",
+
+                "total_tokens"
+            ]:
+
+                target = "defense_" + key
+
+                result[target] = add_tokens(
+
+                    result[target],
+
+                    scan.get(key)
+                )
+
+            if scan["classification_status"] == "error":
+
+                result["classifier_errors"] += 1
+
         def finish():
 
             result["total_latency_ms"] = round(
 
                 (
-                    time.perf_counter()
-                    - start
+                    time.perf_counter() - start
                 ) * 1000,
 
                 2
             )
 
+            result["defense_latency_ms"] = round(
+
+                result["defense_latency_ms"],
+
+                4
+            )
+
+            result["combined_total_tokens"] = (
+                add_tokens(
+
+                    result["total_tokens"],
+
+                    result["defense_total_tokens"]
+                )
+            )
+
             return result
 
-        # ----------------------------------
-        # D1: USER INPUT SCANNING
-        # ----------------------------------
+        # ------------------------------------------
+        # SELECT DETECTOR
+        # ------------------------------------------
+
+        detector = None
 
         if defense_mode == "D1":
 
+            detector = self.rule_defense
+
+        elif defense_mode == "D2":
+
+            detector = self.llm_detector
+
+        # ------------------------------------------
+        # INPUT SECURITY SCANNING
+        # ------------------------------------------
+
+        if detector is not None:
+
             defense_start = time.perf_counter()
 
-            input_scan = self.rule_defense.scan(
+            input_scan = detector.scan(
 
                 text=question,
 
@@ -173,6 +266,10 @@ class RAGPipeline:
                 "input_scan"
             ] = input_scan
 
+            if defense_mode == "D2":
+
+                record_classifier(input_scan)
+
             result["defense_latency_ms"] += (
 
                 time.perf_counter()
@@ -180,32 +277,53 @@ class RAGPipeline:
 
             ) * 1000
 
-            if input_scan["detected"]:
+            if input_scan["detected"] is True:
 
                 result["attack_detected"] = True
 
+            result["matched_rules"].extend(
+
+                input_scan.get(
+                    "matched_rules", []
+                )
+            )
+
+            if input_scan["action"] == "block":
+
                 result["blocked"] = True
 
-                result["matched_rules"] = (
-                    input_scan["matched_rules"]
-                )
+                if input_scan.get(
+                    "classification_status"
+                ) == "error":
 
-                result["answer"] = (
-                    "Your request was flagged by "
-                    "the security policy. Please "
-                    "rephrase your institutional "
-                    "question."
-                )
+                    result["answer"] = (
+                        "The security classifier "
+                        "is temporarily unavailable. "
+                        "Please try again later."
+                    )
 
-                result["execution_status"] = (
-                    "blocked_by_defense"
-                )
+                    result["execution_status"] = (
+                        "defense_error"
+                    )
+
+                else:
+
+                    result["answer"] = (
+                        "Your request was flagged by "
+                        "the security policy. Please "
+                        "rephrase your institutional "
+                        "question."
+                    )
+
+                    result["execution_status"] = (
+                        "blocked_by_defense"
+                    )
 
                 return finish()
 
-        # ----------------------------------
-        # RETRIEVAL
-        # ----------------------------------
+        # ------------------------------------------
+        # DOCUMENT RETRIEVAL
+        # ------------------------------------------
 
         retrieval = self.retriever.retrieve(
 
@@ -226,18 +344,16 @@ class RAGPipeline:
 
         context_chunks = chunks
 
-        # ----------------------------------
-        # D1: RETRIEVED CONTEXT SCANNING
-        # ----------------------------------
+        # ------------------------------------------
+        # CONTEXT SECURITY SCANNING
+        # ------------------------------------------
 
-        if defense_mode == "D1":
+        if detector is not None:
 
             defense_start = time.perf_counter()
 
-            context_scan = (
-                self.rule_defense.scan_context(
-                    chunks
-                )
+            context_scan = detector.scan_context(
+                chunks
             )
 
             context_chunks = (
@@ -256,13 +372,20 @@ class RAGPipeline:
 
                 result["attack_detected"] = True
 
-                for scan in context_scan[
-                    "scan_results"
-                ]:
+            for scan in context_scan[
+                "scan_results"
+            ]:
 
-                    result["matched_rules"].extend(
-                        scan["matched_rules"]
+                result["matched_rules"].extend(
+
+                    scan.get(
+                        "matched_rules", []
                     )
+                )
+
+                if defense_mode == "D2":
+
+                    record_classifier(scan)
 
             result["defense_latency_ms"] += (
 
@@ -276,23 +399,28 @@ class RAGPipeline:
                 result["blocked"] = True
 
                 result["answer"] = (
-                    "The retrieved information "
-                    "was flagged by the security "
-                    "policy. A reliable answer "
-                    "cannot be provided."
+                    "A reliable answer cannot be "
+                    "provided because the retrieved "
+                    "context was excluded by the "
+                    "security policy."
                 )
 
                 result["execution_status"] = (
-                    "blocked_by_defense"
+
+                    "defense_error"
+
+                    if result["classifier_errors"]
+
+                    else "blocked_by_defense"
                 )
 
                 return finish()
 
         result["context_used"] = context_chunks
 
-        # ----------------------------------
+        # ------------------------------------------
         # PROMPT CONSTRUCTION
-        # ----------------------------------
+        # ------------------------------------------
 
         prompt = build_baseline_prompt(
 
@@ -301,9 +429,9 @@ class RAGPipeline:
             retrieved_chunks=context_chunks
         )
 
-        # ----------------------------------
-        # LLM GENERATION
-        # ----------------------------------
+        # ------------------------------------------
+        # ANSWER GENERATION
+        # ------------------------------------------
 
         result["llm_called"] = True
 
@@ -346,9 +474,5 @@ class RAGPipeline:
                 else "empty_response"
             )
         })
-
-        result["defense_latency_ms"] = round(
-            result["defense_latency_ms"], 4
-        )
 
         return finish()
